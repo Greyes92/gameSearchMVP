@@ -1,0 +1,26 @@
+{
+  "name": "gameSearchMVP",
+  "version": "1.0.0",
+  "description": "",
+  "main": "frontend.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Greyes92/gameSearchMVP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Greyes92/gameSearchMVP/issues"
+  },
+  "homepage": "https://github.com/Greyes92/gameSearchMVP#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16",
+    "pg": "^8.7.3",
+    "restful": "^0.4.5"
+  }
+}
