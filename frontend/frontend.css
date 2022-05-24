@@ -26,12 +26,13 @@ div{
      text-align: center;
 }
 
-.welcomeMessageContainer{
+#welcomeMessageContainer {
      display: flex;
      align-items: center;
      justify-content: center;
 }
-.welcomeMessage {
+
+#welcomeMessage {
      display: flex;
      /* flex-wrap: wrap; */
      flex-direction: row;
@@ -176,10 +177,6 @@ button {
      margin: 10px;
      padding-bottom: 10px;
      position: relative;
-}
-
-#addToWishlistBtn {
-     padding-left: 10px;
 }
 
 

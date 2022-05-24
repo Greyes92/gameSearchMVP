@@ -1,5 +1,7 @@
 let $body = document.body
 let $container = $('<div></div>')
+let $resultsContainer = $("<div class='resultsContainer'></div>")
+ $resultsContainer.appendTo($body)
 
 
 // ===================== Buttons ============================
@@ -15,19 +17,13 @@ const $addToWishlistBtn = $("#addToWishlistBtn")
 
 
 // ================= Welcome Message ========================
-let $welcomeMessageContainer = $("<div class='welcomeMessageContainer'></div>")
- $welcomeMessageContainer.appendTo($body)
-let $welcomeMessage = $("<div class='welcomeMessage'></div>")
- $welcomeMessage.text('Hello, my name is Gibran Reyes and this is my Front End Project. It was made with the help of the RAWG.IO API, a massive video game database. All the information you see was pullled from RAWG.IO. Within this project you can search for video games, view upcoming releases and video games that have been released recently. Game on.')
- $welcomeMessage.appendTo($welcomeMessageContainer)
-let $welcomeMessageImg = $("<img =class'welcomeMessageImg'></img>")
- $welcomeMessageImg.attr("src", "pic.jpg")
- $welcomeMessageImg.appendTo($welcomeMessage)
+const $welcomeMessageContainer = $("#welcomeMessageContainer")
+const $welcomeMessage = $("#welcomeMessage")
+const $welcomeMessageImg = $("#welcomeMessageImg")
 //================= Welcome Message ==========================
 
 
-let $resultsContainer = $("<div class='resultsContainer'></div>")
- $resultsContainer.appendTo($body)
+
 
 
 // ======================== HOME ================================
@@ -45,7 +41,7 @@ $searchBtn.click(function(){
 
   $.get(`https://api.rawg.io/api/games?search=${$game}&search_precise=true&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
       $(".game-card").remove();
-      $(".welcomeMessage").remove();
+      $welcomeMessage.remove();
       console.log(data.results)
       let $results = data.results
 
@@ -62,7 +58,7 @@ $searchBtn.click(function(){
 $upcomingReleasesBtn.click(function(){
      $.get(`https://api.rawg.io/api/games?dates=2022-04-30,2022-12-30&ordering=-added&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
           $(".game-card").remove();
-          $(".welcomeMessage").remove()
+          $welcomeMessage.remove();
           let $results = data.results
 
       $results.forEach((elem) => {
@@ -79,7 +75,7 @@ $upcomingReleasesBtn.click(function(){
 $latestReleasesBtn.click(function(){
      $.get(`https://api.rawg.io/api/games?dates=2022-01-01,2022-04-30&platforms=18,1,7&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
           $(".game-card").remove();
-          $(".welcomeMessage").remove();
+          $welcomeMessage.remove();
           let $results = data.results
 
       $results.forEach((elem) => {

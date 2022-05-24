@@ -6,6 +6,7 @@ DROP TABLE IF EXISTS users;
 
 
 CREATE DATABASE gamesearch_db;
+\c gamesearch_db;
 
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
