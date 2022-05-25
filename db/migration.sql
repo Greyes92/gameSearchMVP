@@ -11,7 +11,8 @@ CREATE DATABASE gamesearch_db;
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     name VARCHAR(50),
-    user_name VARCHAR(50)
+    user_name VARCHAR(50),
+    password text
 );
 
 CREATE TABLE wishlist (

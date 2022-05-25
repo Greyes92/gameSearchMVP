@@ -1,7 +1,11 @@
+
+
 let $body = document.body
 let $container = $('<div></div>')
 let $resultsContainer = $("<div class='resultsContainer'></div>")
  $resultsContainer.appendTo($body)
+let $registrationFormContainer = $(".registrationForm-container")
+$registrationFormContainer.hide();
 
 
 // ===================== Buttons ============================
@@ -10,19 +14,92 @@ const $homeBtn = $("#homeBtn");
 const $upcomingReleasesBtn= $("#upcomingReleasesBtn");
 const $latestReleasesBtn = $("#latestReleasesBtn");
 const $wishlistBtn = $("#wishlistBtn");
-const $favoritesBtn = $("#favoritesBtn")
-const $addToWishlistBtn = $("#addToWishlistBtn")
+const $favoritesBtn = $("#favoritesBtn");
+const $addToWishlistBtn = $("#addToWishlistBtn");
+const $registerBtn = $("#registerBtn");
+const $createUserBtn = $("#createUserBtn");
 // ==================== Buttons =============================
 
+// ==================== Log In or Register ==================
+const $login = $(".form-container")
+
+$registerBtn.click(function(){
+     $login.remove();
+     $welcomeMessageContainer.remove();
+     $registrationFormContainer.show();
+})
+
+     $createUserBtn.click(function(){
+         
+          async function createUser() {
+          const formData = new FormData();
+           let name = document.getElementById('create-user-firstname').value;
+           let userName = document.querySelector('#create-username').value;
+           let password = document.querySelector('input[name="createpassword"]').value;
+           console.log(name);
+
+           const newUser = {
+                name: name,
+                user_name: userName,
+                password: password
+           };
+
+           console.log(newUser)
+
+         await fetch('http://localhost:5050/users/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newUser),
+           })
+           .then(response => response.json())
+           .then(data => console.log(data))
+           .catch(error => { 
+                console.log(error) 
+               });
+          }
+          createUser();
+
+          //gets one user
+          //  fetch('http://localhost:5050/users', {
+          //           method: 'GET',
+          //           headers: {
+          //                'Content-Type': 'application/json',
+          //           },
+          //      //      body: newUser
+          //      })
+          //      .then(response => response.json())
+          //      .then(data => console.log(data))
+          //      .catch((error) => {
+          //           console.log('Error:', error)
+          //      });
+
+          //    createUser('http://localhost:5050/users/', {newUser})
+          //      .then(data => {console.log(data)});
+})
+
+// async function createUser(url = '', data = {}) {
+//      // Default options are marked with *
+//      const response = await fetch(url, {
+//        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+//        mode: 'no-cors', // no-cors, *cors, same-origin
+//      //   cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+//      //   credentials: 'same-origin', // include, *same-origin, omit
+//      //   headers: {
+//      //     'Content-Type': 'application/json'
+//      //     // 'Content-Type': 'application/x-www-form-urlencoded',
+//      //   },
+//      //   redirect: 'follow', // manual, *follow, error
+//      //   referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+//        body: JSON.stringify(data) // body data type must match "Content-Type" header
+//      });
+//      return response; // parses JSON response into native JavaScript objects
+//    }
 
 
 // ================= Welcome Message ========================
 const $welcomeMessageContainer = $("#welcomeMessageContainer")
 const $welcomeMessage = $("#welcomeMessage")
 const $welcomeMessageImg = $("#welcomeMessageImg")
-//================= Welcome Message ==========================
-
-
 
 
 
@@ -30,7 +107,6 @@ const $welcomeMessageImg = $("#welcomeMessageImg")
 $homeBtn.click(function(){
      window.location.reload()
 })
-// ======================== HOME ================================
 
 
 
@@ -41,7 +117,8 @@ $searchBtn.click(function(){
 
   $.get(`https://api.rawg.io/api/games?search=${$game}&search_precise=true&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
       $(".game-card").remove();
-      $welcomeMessage.remove();
+      $login.remove();
+      $welcomeMessageContainer.remove();
       console.log(data.results)
       let $results = data.results
 
@@ -50,7 +127,7 @@ $searchBtn.click(function(){
           })
      })
 })
-//=======================  SEARCH FEATURE ==========================
+
 
 
 
@@ -58,7 +135,8 @@ $searchBtn.click(function(){
 $upcomingReleasesBtn.click(function(){
      $.get(`https://api.rawg.io/api/games?dates=2022-04-30,2022-12-30&ordering=-added&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
           $(".game-card").remove();
-          $welcomeMessage.remove();
+          $login.remove();
+          $welcomeMessageContainer.remove();
           let $results = data.results
 
       $results.forEach((elem) => {
@@ -67,7 +145,7 @@ $upcomingReleasesBtn.click(function(){
           })
      })
 })
-//====================  SHOW UPCOMING RELEASES  ================
+
 
 
 
@@ -75,7 +153,8 @@ $upcomingReleasesBtn.click(function(){
 $latestReleasesBtn.click(function(){
      $.get(`https://api.rawg.io/api/games?dates=2022-01-01,2022-04-30&platforms=18,1,7&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
           $(".game-card").remove();
-          $welcomeMessage.remove();
+          $login.remove();
+          $welcomeMessageContainer.remove();
           let $results = data.results
 
       $results.forEach((elem) => {
@@ -83,7 +162,11 @@ $latestReleasesBtn.click(function(){
           })
      })
 })
-//====================  SHOW LATEST RELEASES  ==================
+
+
+// ==================== ADD TO WISHLIST =====================
+
+
 
 
 

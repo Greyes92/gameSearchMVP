@@ -1,5 +1,5 @@
 body {
-     display: grid;
+     /* display: grid; */
      text-align: center;
      justify-content: center;
      align-content: center;
@@ -24,6 +24,94 @@ img {
 
 div{
      text-align: center;
+}
+
+.form-container {
+     display: flex;
+     text-align: center;
+     align-items: center;
+     justify-content: center;
+}
+
+form {
+     display: flex;
+     /* flex-wrap: wrap; */
+     flex-direction: column;
+     align-items: center;
+     text-align: center;
+     color: white;
+     font-size: 20px;
+     font-family: 'Righteous', cursive;
+     font-weight: bold;
+     background-color: rgba(0,0,0,.8);
+     height: auto;
+     width: 600px;
+     justify-content: space-evenly;
+     border: 2px solid white;
+     border-radius: 20px;
+     padding: 10px;
+     margin: 10px;
+}
+
+label {
+     font-family: 'Righteous', cursive;
+     color: white;
+     font-weight: bold;
+     font-size: 20px;
+}
+
+input#user-name {
+     font-family: 'Righteous', cursive;
+     width: 400px;
+     height: 25px;
+     border-radius: 20px;
+     font-size: 20px;
+     font-weight: bold;
+     margin: 5px;
+}
+
+input#user-password {
+     font-family: 'Righteous', cursive;
+     width: 400px;
+     height: 25px;
+     border-radius: 20px;
+     font-size: 20px;
+     font-weight: bold;
+     margin: 5px;
+}
+
+input#create-user-fullname{
+     font-family: 'Righteous', cursive;
+     width: 400px;
+     height: 25px;
+     border-radius: 20px;
+     font-size: 20px;
+     font-weight: bold;
+     margin: 5px;
+}
+
+input#create-user-name{
+     font-family: 'Righteous', cursive;
+     width: 400px;
+     height: 25px;
+     border-radius: 20px;
+     font-size: 20px;
+     font-weight: bold;
+     margin: 5px;
+}
+input#create-user-password{
+     font-family: 'Righteous', cursive;
+     width: 400px;
+     height: 25px;
+     border-radius: 20px;
+     font-size: 20px;
+     font-weight: bold;
+     margin: 5px;
+}
+.registrationForm-container {
+     display: flex;
+     align-items: center;
+     justify-content: center;
 }
 
 #welcomeMessageContainer {
@@ -74,6 +162,13 @@ div{
      height: auto;
      background-color: rgba(0,0,0,.8);
      
+}
+
+button#addToWishlistBtn {
+     align-self: center;
+     padding: auto;
+     margin-left: 15%;
+
 }
 
 text {
@@ -176,7 +271,6 @@ button {
      font-size: 17px;
      margin: 10px;
      padding-bottom: 10px;
-     position: relative;
 }
 
 
