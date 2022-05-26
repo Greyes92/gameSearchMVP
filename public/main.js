@@ -23,6 +23,7 @@ const $createUserBtn = $("#createUserBtn");
 const $loginBtn = $("#loginBtn");
 const $cancelRegistrationBtn = $("#cancelRegistrationBtn");
 const $deleteAccountBtn = $("#deleteAccountBtn");
+const $cancelDeletionBtn = $("#cancelDeletionBtn");
 // ==================== Buttons =============================
 
 // ==================== Log In, Register, Delete ==================
@@ -98,9 +99,12 @@ $deleteAccountBtn.click(function(){
               confirm('Your account has been deleted :sad face: ')
               console.log("Account has been deleted")
          }
-         deleteFromWishlist(elem);
-         $container.remove();
+         deleteThisUser(elem);
 })
+
+$cancelDeletionBtn.click(function(){
+     window.location.reload()
+     });
           // //gets all users
           //  fetch('http://localhost:5050/users', {
           //           method: 'GET',
