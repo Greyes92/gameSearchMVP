@@ -1,5 +1,3 @@
-
-
 let $body = document.body;
 let $container = $('<div></div>');
 let $resultsContainer = $("<div class='resultsContainer'></div>");
@@ -8,7 +6,6 @@ let $registrationFormContainer = $(".registrationForm-container");
 $registrationFormContainer.hide();
 let $deleteAccountFormContainer = $(".deleteAccountForm-container");
 $deleteAccountFormContainer.hide();
-
 
 // ===================== Buttons ============================
 const $searchBtn = $("#submit");
@@ -121,23 +118,15 @@ $cancelDeletionBtn.click(function(){
           //      });
 
 
-
-
-
-
 // ================= Welcome Message ========================
 const $welcomeMessageContainer = $("#welcomeMessageContainer")
 const $welcomeMessage = $("#welcomeMessage")
 const $welcomeMessageImg = $("#welcomeMessageImg")
 
-
-
 // ======================== HOME ================================
 $homeBtn.click(function(){
      window.location.reload()
 })
-
-
 
 //========================== SEARCH FEATURE =========================
 $searchBtn.click(function(){
@@ -158,8 +147,6 @@ $searchBtn.click(function(){
 })
 
 
-
-
 //====================  SHOW UPCOMING RELEASES  ====================
 $upcomingReleasesBtn.click(function(){
      $.get(`https://api.rawg.io/api/games?dates=2022-04-30,2022-12-30&ordering=-added&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
@@ -174,8 +161,6 @@ $upcomingReleasesBtn.click(function(){
           })
      })
 })
-
-
 
 
 //====================  SHOW LATEST RELEASES  ==================
