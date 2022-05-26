@@ -207,6 +207,7 @@ $wishlistBtn.click(function(){
           console.log(data);
           if($results.length === undefined){
                console.log('emptiness')
+               alert('Your wishlist is empty, please add some games!');
           } else {
                $results.forEach((elem) => {
                     createWishlistResultCard(elem);      
