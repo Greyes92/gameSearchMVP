@@ -132,6 +132,8 @@ $homeBtn.click(function(){
 $searchBtn.click(function(){
      const $game = $("input[name= 'search']").val()
      console.log($game)
+     $registrationFormContainer.hide();
+     $deleteAccountFormContainer.hide();
 
   $.get(`https://api.rawg.io/api/games?search=${$game}&search_precise=true&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
       $(".game-card").remove();
@@ -153,6 +155,8 @@ $upcomingReleasesBtn.click(function(){
           $(".game-card").remove();
           $login.remove();
           $welcomeMessageContainer.remove();
+          $registrationFormContainer.hide();
+          $deleteAccountFormContainer.hide();
           let $results = data.results
 
       $results.forEach((elem) => {
@@ -169,6 +173,8 @@ $latestReleasesBtn.click(function(){
           $(".game-card").remove();
           $login.remove();
           $welcomeMessageContainer.remove();
+          $registrationFormContainer.hide();
+          $deleteAccountFormContainer.hide();
           let $results = data.results
 
       $results.forEach((elem) => {
@@ -184,6 +190,8 @@ $latestReleasesBtn.click(function(){
 $wishlistBtn.click(function(){
      $login.remove();
      $welcomeMessageContainer.remove();
+     $registrationFormContainer.hide();
+     $deleteAccountFormContainer.hide();
      $(".game-card").remove();
 
      const userPrompt = prompt('Whats you username?');
