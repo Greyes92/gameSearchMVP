@@ -114,6 +114,12 @@ input#create-user-password{
      justify-content: center;
 }
 
+.deleteAccountForm-container {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+
 #welcomeMessageContainer {
      display: flex;
      align-items: center;

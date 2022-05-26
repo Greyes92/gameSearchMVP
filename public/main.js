@@ -1,11 +1,13 @@
 
 
-let $body = document.body
-let $container = $('<div></div>')
-let $resultsContainer = $("<div class='resultsContainer'></div>")
- $resultsContainer.appendTo($body)
-let $registrationFormContainer = $(".registrationForm-container")
+let $body = document.body;
+let $container = $('<div></div>');
+let $resultsContainer = $("<div class='resultsContainer'></div>");
+ $resultsContainer.appendTo($body);
+let $registrationFormContainer = $(".registrationForm-container");
 $registrationFormContainer.hide();
+let $deleteAccountFormContainer = $(".deleteAccountForm-container");
+$deleteAccountFormContainer.hide();
 
 
 // ===================== Buttons ============================
@@ -70,6 +72,34 @@ $cancelRegistrationBtn.click(function(){
 $deleteAccountBtn.click(function(){
      $login.remove();
      $welcomeMessageContainer.remove();
+     $deleteAccountFormContainer.show();
+
+     
+
+     async function deleteThisUser(elem) {
+          let userName = document.querySelector('#delete-user').value;
+          
+          const deleteThisUser = {
+               user_name: userName
+          };
+          console.log(deleteThisUser)
+
+     await fetch('https://frozen-escarpment-78396.herokuapp.com/users', {
+               method: 'DELETE',
+               headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify(deleteThisUser),
+         })
+          .then(response => response.json())
+          .then(data => console.log(data))
+          .catch(error => { 
+               console.log(error)
+               confirm("That user doesn't exists!") 
+              });
+              confirm('Your account has been deleted :sad face: ')
+              console.log("Account has been deleted")
+         }
+         deleteFromWishlist(elem);
+         $container.remove();
 })
           // //gets all users
           //  fetch('http://localhost:5050/users', {
