@@ -205,14 +205,15 @@ $wishlistBtn.click(function(){
      $.get(`https://frozen-escarpment-78396.herokuapp.com/wishlist/${userPrompt}`, function(data){
           let $results = data
           console.log(data);
-          
-          $results.forEach((elem) => {
-               if (!elem) {
-                    console.log('Emptiness')
-               } else {
-          createWishlistResultCard(elem);    
-               }
-          })
+          if(!data){
+               console.log
+          } else {
+               $results.forEach((elem) => {
+                    createWishlistResultCard(elem);    
+                         
+                    })
+          }
+
      })
 })
 
