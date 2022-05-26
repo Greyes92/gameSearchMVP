@@ -207,7 +207,7 @@ $wishlistBtn.click(function(){
           console.log(data);
           
           $results.forEach((elem) => {
-               if (elem.length === 0) {
+               if (!elem) {
                     console.log('Emptiness')
                } else {
           createWishlistResultCard(elem);    
