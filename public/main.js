@@ -20,9 +20,10 @@ const $registerBtn = $("#registerBtn");
 const $createUserBtn = $("#createUserBtn");
 const $loginBtn = $("#loginBtn");
 const $cancelRegistrationBtn = $("#cancelRegistrationBtn");
+const $deleteAccountBtn = $("#deleteAccountBtn");
 // ==================== Buttons =============================
 
-// ==================== Log In or Register ==================
+// ==================== Log In, Register, Delete ==================
 const $login = $(".form-container")
 
 $registerBtn.click(function(){
@@ -59,11 +60,17 @@ $createUserBtn.click(function(){
                confirm('New user created!')
           }
           createUser();
+});
 
-     $cancelRegistrationBtn.click(function(){
+$cancelRegistrationBtn.click(function(){
      window.location.reload()
      });
-});
+
+
+$deleteAccountBtn.click(function(){
+     $login.remove();
+     $welcomeMessageContainer.remove();
+})
           // //gets all users
           //  fetch('http://localhost:5050/users', {
           //           method: 'GET',
@@ -202,7 +209,7 @@ function listPlatWL(elem){
           platArr.push(elem.platforms[i]);
      }
      platArr = platArr.join('')
-     console.log(platArr)
+     // console.log(platArr)
      return platArr;
 }
 

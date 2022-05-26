@@ -71,6 +71,7 @@ app.delete("/wishlist", async(req, res) => {
 
 
 // ================================= USERS =========================================
+//gets all users
 app.get("/users", async(req, res) => {
      try {
      const data = await db.query('SELECT * FROM users',)
@@ -86,6 +87,7 @@ app.get("/users", async(req, res) => {
 
 })
 
+//get one user
 app.get("/users/", async(req, res) => {
      try {
           const {id} = req.params.id
@@ -103,6 +105,7 @@ app.get("/users/", async(req, res) => {
 
 })
 
+//adds a user
 app.post('/users/', async(req, res) => {
      try {
           const {name, user_name, password} = req.body
@@ -117,6 +120,19 @@ app.post('/users/', async(req, res) => {
           console.log('User was created')
      } catch (err) {
           console.log(err.message)
+     }
+})
+
+app.delete("/users", async(req, res) => {
+     try{
+          const {user_name} = req.body
+          const {rows} = await db
+          .query("DELETE FROM users WHERE user_name = $1;", [user_name])
+          res.send({rows}.rows)
+          console.log({rows}.rows)
+          console.log("The user has been deleted")
+     } catch (error) {
+          console.log(error.message)
      }
 })
 

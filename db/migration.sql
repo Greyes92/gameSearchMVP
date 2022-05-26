@@ -1,12 +1,12 @@
-DROP DATABASE gamesearch_db;
-DROP TABLE IF EXISTS favorites_list;
-DROP TABLE IF EXISTS wishlist;
-DROP TABLE IF EXISTS users;
+-- DROP DATABASE gamesearch_db;
+-- DROP TABLE IF EXISTS favorites_list;
+-- DROP TABLE IF EXISTS wishlist;
+-- DROP TABLE IF EXISTS users;
 
 
 
-CREATE DATABASE gamesearch_db;
-\c gamesearch_db;
+-- CREATE DATABASE gamesearch_db;
+-- \c gamesearch_db;
 
 CREATE TABLE users (
     user_id SERIAL ,
