@@ -2,6 +2,30 @@ TRUNCATE favorites_list RESTART IDENTITY CASCADE;
 TRUNCATE wishlist RESTART IDENTITY CASCADE;
 TRUNCATE users RESTART IDENTITY CASCADE;
 
+CREATE TABLE users (
+    user_id SERIAL ,
+    name VARCHAR(50),
+    user_name text PRIMARY KEY,
+    password text
+);
+
+CREATE TABLE wishlist (
+    wishlist_id SERIAL PRIMARY KEY,
+    title VARCHAR(50),
+    release_date DATE,
+    platforms text,
+    user_name text,
+    FOREIGN KEY (user_name) REFERENCES users ON DELETE CASCADE
+);
+
+CREATE TABLE favorites_list (
+    favslist_id SERIAL PRIMARY KEY,
+    title VARCHAR(50),
+    score numeric,
+    platforms text,
+    user_name text,
+    FOREIGN KEY (user_name) REFERENCES users ON DELETE CASCADE
+);
 
 INSERT INTO users (name, user_name,password) VALUES ('Gibran Reyes', 'greyesdev', 'password');
 INSERT INTO users (name, user_name,password) VALUES ('Cristal Herrera', 'wifey', 'password');
