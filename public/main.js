@@ -45,7 +45,7 @@ $createUserBtn.click(function(){
            };
            console.log(newUser)
 
-     await fetch('http://localhost:5050/users/', {
+     await fetch('https://frozen-escarpment-78396.herokuapp.com/users/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newUser),
@@ -162,7 +162,8 @@ $wishlistBtn.click(function(){
      const userPrompt = prompt('Whats you username?');
      console.log(userPrompt)
 
-     $.get(`http://localhost:5050/wishlist/${userPrompt}`, function(data){
+     // $.get(`http://localhost:5050/wishlist/${userPrompt}`, function(data){
+     $.get(`https://frozen-escarpment-78396.herokuapp.com/wishlist/${userPrompt}`, function(data){
           let $results = data
           console.log(data);
           
@@ -250,7 +251,8 @@ function createResultCard(elem){
                };
                console.log(wantThisGame)
     
-         await fetch('http://localhost:5050/wishlist', {
+     //     await fetch('http://localhost:5050/wishlist', {
+          await fetch('https://frozen-escarpment-78396.herokuapp.com/wishlist', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(wantThisGame),
@@ -305,7 +307,8 @@ function createWishlistResultCard(elem) {
                };
                console.log(deleteThisGame)
     
-         await fetch('http://localhost:5050/wishlist', {
+     //     await fetch('http://localhost:5050/wishlist', {
+          await fetch('https://frozen-escarpment-78396.herokuapp.com/wishlist', {
                     method: 'DELETE',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(deleteThisGame),

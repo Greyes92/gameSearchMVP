@@ -7,10 +7,10 @@ const cors = require("cors");
 
 app.use(express.json());
 app.use(express.static("public"));
-app.use(cors())
+// app.use(cors())
 
 // ====================== WISH LIST =================================
-//get wishlist of user
+//get wishlist of one user
 app.get("/wishlist/:user_name", async(req, res) => {
      try {
      const username = req.params.user_name
