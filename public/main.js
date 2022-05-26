@@ -77,7 +77,7 @@ $deleteAccountBtn.click(function(){
 
      
 
-     async function deleteThisUser(elem) {
+     async function deleteThisUser() {
           let userName = document.querySelector('#delete-user').value;
           
           const deleteThisUser = {
@@ -99,7 +99,7 @@ $deleteAccountBtn.click(function(){
               confirm('Your account has been deleted :sad face: ')
               console.log("Account has been deleted")
          }
-         deleteThisUser(elem);
+         deleteThisUser();
 })
 
 $cancelDeletionBtn.click(function(){
