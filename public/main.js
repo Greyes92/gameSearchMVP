@@ -34,7 +34,7 @@ $registerBtn.click(function(){
 })
 
 $createUserBtn.click(function(){
-         
+
      async function createUser() {
            let name = document.getElementById('create-user-firstname').value;
            let userName = document.querySelector('#create-username').value;
@@ -58,9 +58,11 @@ $createUserBtn.click(function(){
                 console.log(error)
                 confirm('that user already exists!') 
                });
-               confirm('New user created!')
+               confirm('New user created! Redirecting to home page.')
+               done();
           }
           createUser();
+          
 });
 
 $cancelRegistrationBtn.click(function(){
@@ -96,6 +98,8 @@ $deleteUserBtn.click(function(){
               });
               confirm('Your account has been deleted :sad face: ')
               console.log("Account has been deleted")
+              done();
+            
          }
          deleteThisUser();
 })
@@ -364,3 +368,9 @@ function createWishlistResultCard(elem) {
 
 
 }
+
+function done() {
+     setInterval(function(){
+     window.location.reload();
+     },3000);
+   }
