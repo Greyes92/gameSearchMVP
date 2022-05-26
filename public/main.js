@@ -23,6 +23,7 @@ const $createUserBtn = $("#createUserBtn");
 const $loginBtn = $("#loginBtn");
 const $cancelRegistrationBtn = $("#cancelRegistrationBtn");
 const $deleteAccountBtn = $("#deleteAccountBtn");
+const $deleteUserBtn = $("#deleteUserBtn");
 const $cancelDeletionBtn = $("#cancelDeletionBtn");
 // ==================== Buttons =============================
 
@@ -74,9 +75,9 @@ $deleteAccountBtn.click(function(){
      $login.remove();
      $welcomeMessageContainer.remove();
      $deleteAccountFormContainer.show();
-
+})
      
-
+$deleteUserBtn.click(function(){
      async function deleteThisUser() {
           let userName = document.querySelector('#delete-user').value;
           
