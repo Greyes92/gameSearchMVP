@@ -273,6 +273,7 @@ function createResultCard(elem){
      $platforms.text(listPlat(elem))
      $platforms.appendTo($container)
      $addToWishlistBtn.appendTo($container)
+     console.log(elem)
      
      $addToWishlistBtn.click(function(){
           const userPrompt = prompt('Whats you username?');
