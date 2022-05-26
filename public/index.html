@@ -8,9 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Righteous&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Press+Start+2P&family=Righteous&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="frontend.css">
+<link rel="stylesheet" href="main.css">
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-  <script defer src="frontend.js"></script>
+  <script defer src="main.js"></script>
   <title>Game On Video Game Search</title>
 </head>
 <body>
@@ -48,6 +48,8 @@
       <input type="password" id="user-password" placeholder="Enter Your Password" name="password" required>
       </label>
 
+      <button id="loginBtn">Log In!</button>
+
       OR
 
       <button id="registerBtn">Register Here!</button>
@@ -57,29 +59,29 @@
 
   <div class ="registrationForm-container">
     <!-- <form id="new-user" onsubmit="return false"> Register -->
-    <form id="new-user"> Register
+    <form id="new-user" onsubmit="return false"> Register
       
-      <label for="create-user-firstname">Name:</label>
+      <label for="create-user-firstname">Name:
       <input type="text" id="create-user-firstname" placeholder="Enter Your First Name" name="createfullname">
-      
+    </label>
   
 
-      <label for="create-user-name">User Name:</label>
+      <label for="create-user-name">User Name:
       <input type="text" id="create-username" placeholder="Enter Your User Name" name="createusername">
-      
+    </label>
 
-      <label for="create-user-password">Password:</label>
+      <label for="create-user-password">Password:
       <input type="text" id="create-user-password" placeholder="Enter Your Password" name="createpassword">
-      
+    </label>
 
       <button id="createUserBtn">Create User!</button>
+      <button id="cancelRegistrationBtn">Cancel</button>
 
     </form>
   </div>
 
   <div id="welcomeMessageContainer">
-    <div id="welcomeMessage">Hello, my name is Gibran Reyes and this is my Front End Project. It was made with the help of the RAWG.IO API, a massive video game database. All the information you see was pullled from RAWG.IO. Within this project you can search for video games, view upcoming releases and video games that have been released recently. Game on.
-      <!-- <textarea>Hello, my name is Gibran Reyes and this is my Front End Project. It was made with the help of the RAWG.IO API, a massive video game database. All the information you see was pullled from RAWG.IO. Within this project you can search for video games, view upcoming releases and video games that have been released recently. Game on.</textarea> -->
+    <div id="welcomeMessage">Hello World, my name is Gibran Reyes and this is Game On. It was made with the help of the RAWG.IO API, a massive video game database. All of the game information you see is being fetched from RAWG.IO but all styling was made by me. Within this project you can search for video games, view upcoming/recent releases and add them to a wish list. Game on.
       <img id="welcomeMessageImg" src="./pic.jpg"></img>
     </div>
   </div>  

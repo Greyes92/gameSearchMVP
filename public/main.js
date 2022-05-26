@@ -18,6 +18,8 @@ const $favoritesBtn = $("#favoritesBtn");
 const $addToWishlistBtn = $("#addToWishlistBtn");
 const $registerBtn = $("#registerBtn");
 const $createUserBtn = $("#createUserBtn");
+const $loginBtn = $("#loginBtn");
+const $cancelRegistrationBtn = $("#cancelRegistrationBtn");
 // ==================== Buttons =============================
 
 // ==================== Log In or Register ==================
@@ -29,37 +31,40 @@ $registerBtn.click(function(){
      $registrationFormContainer.show();
 })
 
-     $createUserBtn.click(function(){
+$createUserBtn.click(function(){
          
-          async function createUser() {
-          const formData = new FormData();
+     async function createUser() {
            let name = document.getElementById('create-user-firstname').value;
            let userName = document.querySelector('#create-username').value;
            let password = document.querySelector('input[name="createpassword"]').value;
-           console.log(name);
 
            const newUser = {
                 name: name,
                 user_name: userName,
                 password: password
            };
-
            console.log(newUser)
 
-         await fetch('http://localhost:5050/users/', {
+     await fetch('http://localhost:5050/users/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newUser),
-           })
+          })
            .then(response => response.json())
            .then(data => console.log(data))
            .catch(error => { 
-                console.log(error) 
+                console.log(error)
+                confirm('that user already exists!') 
                });
+               confirm('New user created!')
           }
           createUser();
 
-          //gets one user
+     $cancelRegistrationBtn.click(function(){
+     window.location.reload()
+     });
+});
+          // //gets all users
           //  fetch('http://localhost:5050/users', {
           //           method: 'GET',
           //           headers: {
@@ -73,27 +78,9 @@ $registerBtn.click(function(){
           //           console.log('Error:', error)
           //      });
 
-          //    createUser('http://localhost:5050/users/', {newUser})
-          //      .then(data => {console.log(data)});
-})
 
-// async function createUser(url = '', data = {}) {
-//      // Default options are marked with *
-//      const response = await fetch(url, {
-//        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-//        mode: 'no-cors', // no-cors, *cors, same-origin
-//      //   cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-//      //   credentials: 'same-origin', // include, *same-origin, omit
-//      //   headers: {
-//      //     'Content-Type': 'application/json'
-//      //     // 'Content-Type': 'application/x-www-form-urlencoded',
-//      //   },
-//      //   redirect: 'follow', // manual, *follow, error
-//      //   referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-//        body: JSON.stringify(data) // body data type must match "Content-Type" header
-//      });
-//      return response; // parses JSON response into native JavaScript objects
-//    }
+
+
 
 
 // ================= Welcome Message ========================
@@ -164,10 +151,26 @@ $latestReleasesBtn.click(function(){
 })
 
 
-// ==================== ADD TO WISHLIST =====================
+// ======================= WISHLIST ==============================
 
 
+$wishlistBtn.click(function(){
+     $login.remove();
+     $welcomeMessageContainer.remove();
+     $(".game-card").remove();
 
+     const userPrompt = prompt('Whats you username?');
+     console.log(userPrompt)
+
+     $.get(`http://localhost:5050/wishlist/${userPrompt}`, function(data){
+          let $results = data
+          console.log(data);
+          
+          $results.forEach((elem) => {
+          createWishlistResultCard(elem);
+          })
+     })
+})
 
 
 // ================== Helper Functions =========================
@@ -189,6 +192,16 @@ function listPlat(elem){
           platArr.push(elem.platforms[i].platform.name);
      }
      platArr = platArr.join(' | ')
+     return platArr;
+}
+
+function listPlatWL(elem){
+     var platArr = [];
+     for(let i = 0; i < JSON.stringify(elem.platforms.length); i++){
+          platArr.push(elem.platforms[i]);
+     }
+     platArr = platArr.join('')
+     console.log(platArr)
      return platArr;
 }
 
@@ -220,4 +233,96 @@ function createResultCard(elem){
      $platforms.text(listPlat(elem))
      $platforms.appendTo($container)
      $addToWishlistBtn.appendTo($container)
+     
+     $addToWishlistBtn.click(function(){
+          const userPrompt = prompt('Whats you username?');
+
+          async function addToWishlist(elem) {
+               let title = elem.name;
+               let releaseDate = elem.released;
+               let platforms = listPlat(elem);
+               
+               const wantThisGame = {
+                    title: title,
+                    release_date: releaseDate,
+                    platforms: platforms,
+                    user_name: userPrompt
+               };
+               console.log(wantThisGame)
+    
+         await fetch('http://localhost:5050/wishlist', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(wantThisGame),
+              })
+               .then(response => response.json())
+               .then(data => console.log(data))
+               .catch(error => { 
+                    console.log(error)
+                    confirm('that game already exists!') 
+                   });
+                   confirm("Awesome Choice! It's been added to wishlist!!")
+              }
+              addToWishlist(elem)
+
+     })
+}
+
+function createWishlistResultCard(elem) {
+     let $container = $('<div></div>')
+     $container.attr("class","game-card")
+     $container.appendTo($resultsContainer)
+     const $heading = $("<h2 class='game-title'></h2>")
+     const $platHeading = $("<h3 class='platforms'>Platform(s):</h3>")
+     const $platforms = $("<text></text>")
+     // const $genresHeading = $("<h3 class='genres'>Genre(s):</h3>")
+     // const $genres = $("<text></text>")
+     const $releaseDate = $(`<text>Release Date: ${elem.release_date}</text>`)
+     const $deleteFromWishlistBtn = $("<button id = 'addToWishlistBtn'>Delete From Wishlist</button>")
+     // const $rating = $(`<text>Rating: ${elem.score}/ 5</text>`)
+     $heading.text(elem.title)
+     $heading.attr("href",)
+     $heading.appendTo($container)
+     $releaseDate.appendTo($container)
+     // $rating.appendTo($container)
+     // $genresHeading.appendTo($container)
+     // $genres.text(listGenre(elem))
+     // $genres.appendTo($container)
+     $platHeading.appendTo($container)
+     $platforms.text(listPlatWL(elem))
+     $platforms.appendTo($container)
+     $deleteFromWishlistBtn.appendTo($container)
+
+     $deleteFromWishlistBtn.click(function(){
+
+          async function deleteFromWishlist(elem) {
+               let title = elem.title;
+               let userName = elem.user_name
+               
+               const deleteThisGame = {
+                    title: title,
+                    user_name: userName
+               };
+               console.log(deleteThisGame)
+    
+         await fetch('http://localhost:5050/wishlist', {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(deleteThisGame),
+              })
+               .then(response => response.json())
+               .then(data => console.log(data))
+               .catch(error => { 
+                    console.log(error)
+                    confirm("That game doesn't exists!") 
+                   });
+                   confirm('Removed from wishlist!!')
+                   console.log("The game has been removed from db")
+              }
+              deleteFromWishlist(elem);
+              $container.remove();
+
+     })
+
+
 }

@@ -80,7 +80,7 @@ input#user-password {
      margin: 5px;
 }
 
-input#create-user-fullname{
+input#create-user-firstname{
      font-family: 'Righteous', cursive;
      width: 400px;
      height: 25px;
@@ -90,7 +90,7 @@ input#create-user-fullname{
      margin: 5px;
 }
 
-input#create-user-name{
+input#create-username{
      font-family: 'Righteous', cursive;
      width: 400px;
      height: 25px;

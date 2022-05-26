@@ -9,9 +9,9 @@ CREATE DATABASE gamesearch_db;
 \c gamesearch_db;
 
 CREATE TABLE users (
-    user_id SERIAL PRIMARY KEY,
+    user_id SERIAL ,
     name VARCHAR(50),
-    user_name VARCHAR(50),
+    user_name text PRIMARY KEY,
     password text
 );
 
@@ -20,8 +20,8 @@ CREATE TABLE wishlist (
     title VARCHAR(50),
     release_date DATE,
     platforms text,
-    user_id int,
-    FOREIGN KEY (user_id) REFERENCES users ON DELETE CASCADE
+    user_name text,
+    FOREIGN KEY (user_name) REFERENCES users ON DELETE CASCADE
 );
 
 CREATE TABLE favorites_list (
@@ -29,6 +29,6 @@ CREATE TABLE favorites_list (
     title VARCHAR(50),
     score numeric,
     platforms text,
-    user_id int,
-    FOREIGN KEY (user_id) REFERENCES users ON DELETE CASCADE
+    user_name text,
+    FOREIGN KEY (user_name) REFERENCES users ON DELETE CASCADE
 );
