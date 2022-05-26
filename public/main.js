@@ -209,8 +209,9 @@ $wishlistBtn.click(function(){
           $results.forEach((elem) => {
                if (elem.length === 0) {
                     console.log('Emptiness')
-               } else
+               } else {
           createWishlistResultCard(elem);    
+               }
           })
      })
 })
