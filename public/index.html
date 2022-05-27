@@ -38,7 +38,7 @@
   </div>
 
   <div class ="form-container">
-    <form id="user"> Register Your Account
+    <form id="user"> Welcome! Please Register Your Account.
 
       <!-- <label for="user-name">User Name:
       <input type="text" id="user-name" placeholder="Enter Your User Name" name="user-name" required>
@@ -53,7 +53,8 @@
       OR -->
 
       <button id="registerBtn">Register Here!</button>
-      <button id="deleteAccountBtn">Delete Account!</button>
+      <button id="updateInfoBtn">Update Your Info</button>
+      <button id="deleteAccountBtn">Delete Account</button>
 
     </form>
   </div>
@@ -91,6 +92,35 @@
 
       <button id="deleteUserBtn">Delete Account</button>
       <button id="cancelDeletionBtn">Cancel</button>
+
+    </form>
+  </div>
+
+  <div class ="updateAccountForm-container">
+    <!-- <form id="new-user" onsubmit="return false"> Register -->
+    <form id="update-user-form""> First, enter Your username.
+
+      
+    <label for="update-this-username">User Name:
+      <input type="text" id="update-this-user" placeholder="Enter Your User Name" name="updateuser">
+    </label>
+
+    Then, enter changes you wish to make below.
+
+      <label for="update-this-user">Name:
+        <input type="text" id="update-users-name" placeholder="Enter Your User Name" name="updateuser">
+      </label>
+
+      <label for="update-user-name">User Name:
+      <input type="text" id="update-users-username" placeholder="Enter Your User Name" name="createusername" required>
+    </label>
+
+      <label for="update-user-password">Password:
+      <input type="text" id="update-users-password" placeholder="Enter Your Password" name="createpassword" required>
+    </label>
+
+      <button id="updateUserBtn">Update Account</button>
+      <button id="cancelUpdateBtn">Cancel</button>
 
     </form>
   </div>

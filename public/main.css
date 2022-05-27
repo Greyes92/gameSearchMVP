@@ -115,6 +115,53 @@ input#create-user-password{
      justify-content: center;
 }
 
+.updateAccountForm-container{
+     display: grid;
+     align-items: right;
+     justify-content: center;
+}
+
+input#update-this-user{
+     font-family: 'Righteous', cursive;
+     width: 400px;
+     height: 25px;
+     border-radius: 20px;
+     font-size: 20px;
+     font-weight: bold;
+     margin: 5px;
+     justify-content: right;
+}
+
+input#update-users-name{
+     font-family: 'Righteous', cursive;
+     width: 400px;
+     height: 25px;
+     border-radius: 20px;
+     font-size: 20px;
+     font-weight: bold;
+     margin: 5px;
+}
+
+input#update-users-username{
+     font-family: 'Righteous', cursive;
+     width: 400px;
+     height: 25px;
+     border-radius: 20px;
+     font-size: 20px;
+     font-weight: bold;
+     margin: 5px;
+}
+
+input#update-users-password{
+     font-family: 'Righteous', cursive;
+     width: 400px;
+     height: 25px;
+     border-radius: 20px;
+     font-size: 20px;
+     font-weight: bold;
+     margin: 5px;
+}
+
 .deleteAccountForm-container {
      display: flex;
      align-items: center;

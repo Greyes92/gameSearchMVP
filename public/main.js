@@ -6,6 +6,8 @@ let $registrationFormContainer = $(".registrationForm-container");
 $registrationFormContainer.hide();
 let $deleteAccountFormContainer = $(".deleteAccountForm-container");
 $deleteAccountFormContainer.hide();
+let $updateAccountFormContainer = $(".updateAccountForm-container");
+$updateAccountFormContainer.hide();
 
 // ===================== Buttons ============================
 const $searchBtn = $("#submit");
@@ -16,17 +18,22 @@ const $wishlistBtn = $("#wishlistBtn");
 const $favoritesBtn = $("#favoritesBtn");
 const $addToWishlistBtn = $("#addToWishlistBtn");
 const $registerBtn = $("#registerBtn");
+const $updateYourInfoBtn = $("#updateYourInfoBtn");
 const $createUserBtn = $("#createUserBtn");
 const $loginBtn = $("#loginBtn");
 const $cancelRegistrationBtn = $("#cancelRegistrationBtn");
 const $deleteAccountBtn = $("#deleteAccountBtn");
 const $deleteUserBtn = $("#deleteUserBtn");
 const $cancelDeletionBtn = $("#cancelDeletionBtn");
+const $updateInfoBtn = $("#updateInfoBtn");
+const $updateUserBtn = $("#updateUserBtn");
+const $cancelUpdateBtn = $("#cancelUpdateBtn");
 // ==================== Buttons =============================
 
 // ==================== Log In, Register, Delete ==================
 const $login = $(".form-container")
 
+//register user ================
 $registerBtn.click(function(){
      $login.remove();
      $welcomeMessageContainer.remove();
@@ -69,7 +76,19 @@ $cancelRegistrationBtn.click(function(){
      window.location.reload()
      });
 
+     //
+$updateInfoBtn.click(function(){
+     $login.remove();
+     $welcomeMessageContainer.remove();
+     $updateAccountFormContainer.show();
+})
 
+$cancelUpdateBtn.click(function(){
+     window.location.reload()
+     });
+
+
+// delete account =========
 $deleteAccountBtn.click(function(){
      $login.remove();
      $welcomeMessageContainer.remove();
