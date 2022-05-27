@@ -88,13 +88,11 @@ $updateUserBtn.click(function(){
 async function updateUser() {
      let currentUserName = document.getElementById('update-this-user').value;
      let newname = document.getElementById('update-users-name').value;
-     let newusername = document.querySelector('#update-users-username').value;
      let newpassword = document.querySelector('input[name="updatepassword"]').value;
 
      const updateUserData = {
           currentUserName: currentUserName,
           newname: newname,
-          newusername: newusername,
           newpassword: newpassword
      };
      console.log(updateUserData)

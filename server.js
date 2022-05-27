@@ -125,13 +125,12 @@ app.post('/users/', async(req, res) => {
 
 app.patch('/users/', async(req, res) => {
      try {
-          const {currentUserName, newname, newusername, password} = req.body
-          const {rows} = await db.query('UPDATE users SET name = $2, user_name = $3, password = $4 WHERE user_name = $1 RETURNING*;',
+          const {currentUserName, newname, newpassword} = req.body
+          const {rows} = await db.query('UPDATE users SET name = $2, password = $3 WHERE user_name = $1 RETURNING*;',
           [
                currentUserName,
                newname,
-               newusername,
-               password
+               newpassword
           ])
           res.send({data: {rows}, message: "New user has been created."})
           console.log({rows})
