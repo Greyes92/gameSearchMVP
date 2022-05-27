@@ -337,6 +337,34 @@ button {
      padding-bottom: 10px;
 }
 
+.footerContainer {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     margin-top: 50px;
+}
+
+p {
+     margin: 0;
+}
+
+footer {
+     display: flex;
+     flex-direction: column;
+     font-family: 'Lobster', cursive;
+     color: white;
+     font-weight: bold;
+     font-size: 20px;
+     margin: 40px;
+     padding-bottom: 0px;
+}
+
+a {
+     font-family: 'Lobster', cursive;
+     color: white;
+     font-weight: bold;
+     font-size: 20px;
+}
 
 @keyframes shake{
      0%{
