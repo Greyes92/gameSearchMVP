@@ -8,6 +8,8 @@ let $deleteAccountFormContainer = $(".deleteAccountForm-container");
 $deleteAccountFormContainer.hide();
 let $updateAccountFormContainer = $(".updateAccountForm-container");
 $updateAccountFormContainer.hide();
+let $footer = $("#footer");
+$footer.appendTo($body);
 
 // ===================== Buttons ============================
 const $searchBtn = $("#submit");

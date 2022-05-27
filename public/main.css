@@ -342,6 +342,8 @@ button {
      flex-wrap: wrap;
      justify-content: center;
      margin-top: 50px;
+     position: absolute;
+     bottom: 0;
 }
 
 p {
@@ -350,13 +352,17 @@ p {
 
 footer {
      display: flex;
+     flex-wrap: wrap;
      flex-direction: column;
      font-family: 'Lobster', cursive;
      color: white;
      font-weight: bold;
      font-size: 20px;
-     margin: 40px;
+     margin-top: 7%;
+     margin-bottom: 0px;
      padding-bottom: 0px;
+     bottom: 1vh;
+     
 }
 
 a {
