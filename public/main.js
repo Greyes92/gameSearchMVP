@@ -38,6 +38,7 @@ $registerBtn.click(function(){
      $login.remove();
      $welcomeMessageContainer.remove();
      $registrationFormContainer.show();
+     $updateAccountFormContainer.hide()
 })
 
 $createUserBtn.click(function(){
@@ -189,6 +190,7 @@ $searchBtn.click(function(){
      console.log($game)
      $registrationFormContainer.hide();
      $deleteAccountFormContainer.hide();
+     $updateAccountFormContainer.hide()
 
   $.get(`https://api.rawg.io/api/games?search=${$game}&search_precise=true&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
       $(".game-card").remove();
@@ -212,6 +214,7 @@ $upcomingReleasesBtn.click(function(){
           $welcomeMessageContainer.remove();
           $registrationFormContainer.hide();
           $deleteAccountFormContainer.hide();
+          $updateAccountFormContainer.hide()
           let $results = data.results
 
       $results.forEach((elem) => {
@@ -230,6 +233,7 @@ $latestReleasesBtn.click(function(){
           $welcomeMessageContainer.remove();
           $registrationFormContainer.hide();
           $deleteAccountFormContainer.hide();
+          $updateAccountFormContainer.hide()
           let $results = data.results
 
       $results.forEach((elem) => {
@@ -247,6 +251,7 @@ $wishlistBtn.click(function(){
      $welcomeMessageContainer.remove();
      $registrationFormContainer.hide();
      $deleteAccountFormContainer.hide();
+     $updateAccountFormContainer.hide()
      $(".game-card").remove();
 
      const userPrompt = prompt('Whats you username?');
