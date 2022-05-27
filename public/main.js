@@ -83,6 +83,38 @@ $updateInfoBtn.click(function(){
      $updateAccountFormContainer.show();
 })
 
+$updateUserBtn.click(function(){
+async function updateUser() {
+     let currentUserName = document.getElementById('update-this-user').value;
+     let newname = document.getElementById('update-users-name').value;
+     let newusername = document.querySelector('#update-users-username').value;
+     let newpassword = document.querySelector('input[name="updatepassword"]').value;
+
+     const updateUserData = {
+          currentUserName: currentUserName,
+          newname: newname,
+          newusername: newusername,
+          newpassword: newpassword
+     };
+     console.log(updateUserData)
+
+await fetch('https://frozen-escarpment-78396.herokuapp.com/users/', {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(updateUserData),
+    })
+     .then(response => response.json())
+     .then(data => console.log(data))
+     .catch(error => { 
+          console.log(error)
+          confirm('could not update info!') 
+         });
+         confirm('Your info has been updated! Redirecting to home page.')
+         done();
+    }
+    updateUser();
+})
+
 $cancelUpdateBtn.click(function(){
      window.location.reload()
      });
