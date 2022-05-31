@@ -4,17 +4,17 @@ Welcome! My name is Gibran Reyes. I am a transitioning Service Member that recen
 
 ### Languages And Tools Used:
 **Front End**
--JavaScript
--jQuery
--HTML
--CSS
+- JavaScript
+- jQuery
+- HTML
+- CSS
 
 **Back End**
--Node.js
--Express.js
+- Node.js
+- Express.js
 
 **Database**
--PostgreSQL
+- PostgreSQL
 
 ### Feature 1: Search
 The main feature of Game On is the search function. You may search for a game using the search bar at the top of the page. It populate the top 20 most relevant results. In the future, I plan to add a sort/filter function and also more pages that you can look through. User's have the option to add a game to their wishlist.
@@ -33,12 +33,12 @@ The "Upcoming Releases" Button will show what games will be releasing within the
 The "Latest Releases" Button will show games that have released within the last 3 months. Users have the option to add a game to their wishlist.
 
 ### In the future I would like to add:
--Proper User authentication
--Filter/sort results
--Pages to display more results
--Links that users can follow to wanted games' store
--Game Trailers and screenshots
--Possibly a comments section
+- Proper User authentication
+- Filter/sort results
+- Pages to display more results
+- Links that users can follow to wanted games' store
+- Game Trailers and screenshots
+- Possibly a comments section
 
 
 
