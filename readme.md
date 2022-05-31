@@ -2,6 +2,8 @@
 
 Welcome! My name is Gibran Reyes. I am a transitioning Service Member that recently separated from the US ARMY and an aspiring Full Stack Software Engineer. I am currently attending The Operation Level Up Software Engineering Immersive/Bootcamp through Galvanize. This a project I am working on for the course and is my first Full Stack Application with CRUD functionality. It still needs a lot of work and I will continue to add more features as my knowledge and skills grow throughout the course. Game On is a video game search engine and all of the video game information populated is provided by the RAWG.IO API through fetch requests. All of the styling was done by me. Thank you for stopping by and checking my project out! Below I have broken down my project.
 
+Link: https://project-game-on.herokuapp.com/
+
 ### Languages And Tools Used:
 **Front End**
 - JavaScript
