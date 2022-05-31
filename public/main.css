@@ -372,6 +372,12 @@ a {
      font-size: 20px;
 }
 
+button:hover {
+     transform:scale(1.2,1.2);
+     -webkit-transform:scale(1.2,1.2);
+     -moz-transform:scale(1.2,1.2);
+ }
+
 @keyframes shake{
      0%{
           transform: translateY(0);
