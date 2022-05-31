@@ -24,6 +24,7 @@ img {
 
 div{
      text-align: center;
+     box-shadow: 15px 15px 15px black;
 }
 
 .form-container {
@@ -335,6 +336,7 @@ button {
      font-size: 17px;
      margin: 10px;
      padding-bottom: 10px;
+     box-shadow: 5px 5px 5px #454545;
 }
 
 .footerContainer {
