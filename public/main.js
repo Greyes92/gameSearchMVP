@@ -208,7 +208,7 @@ $searchBtn.click(function(){
 
 //====================  SHOW UPCOMING RELEASES  ====================
 $upcomingReleasesBtn.click(function(){
-     $.get(`https://api.rawg.io/api/games?dates=2022-04-30,2022-12-30&ordering=-added&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
+     $.get(`https://api.rawg.io/api/games?dates=2022-06-01,2023-06-01&ordering=-added&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
           $(".game-card").remove();
           $login.remove();
           $welcomeMessageContainer.remove();
@@ -227,7 +227,7 @@ $upcomingReleasesBtn.click(function(){
 
 //====================  SHOW LATEST RELEASES  ==================
 $latestReleasesBtn.click(function(){
-     $.get(`https://api.rawg.io/api/games?dates=2022-01-01,2022-04-30&platforms=18,1,7&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
+     $.get(`https://api.rawg.io/api/games?dates=2022-02-01,2022-06-01&platforms=18,1,7&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
           $(".game-card").remove();
           $login.remove();
           $welcomeMessageContainer.remove();
