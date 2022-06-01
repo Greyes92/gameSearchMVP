@@ -24,7 +24,7 @@ img {
 
 div{
      text-align: center;
-     box-shadow: 15px 15px 15px black;
+     
 }
 
 .form-container {
@@ -203,6 +203,7 @@ input#delete-user{
      border: 2px solid white;
      border-radius: 20px;
      padding: 10px;
+     box-shadow: 15px 15px 15px black;
      
 }
 
@@ -227,6 +228,7 @@ input#delete-user{
      width: 400px;
      height: auto;
      background-color: rgba(0,0,0,.8);
+     box-shadow: 15px 15px 15px black;
      
 }
 
