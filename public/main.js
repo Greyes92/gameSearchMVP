@@ -1,7 +1,7 @@
 let $body = document.body;
 let $container = $('<div></div>');
 let $resultsContainer = $("<div class='resultsContainer'></div>");
- $resultsContainer.appendTo($body);
+$resultsContainer.appendTo($body);
 let $registrationFormContainer = $(".registrationForm-container");
 $registrationFormContainer.hide();
 let $deleteAccountFormContainer = $(".deleteAccountForm-container");
@@ -10,6 +10,21 @@ let $updateAccountFormContainer = $(".updateAccountForm-container");
 $updateAccountFormContainer.hide();
 let $footer = $("#footer");
 $footer.appendTo($body);
+let d = new Date();
+let minusThreeMonths = new Date(
+        new Date().getFullYear(),
+        new Date().getMonth() - 3, 
+        new Date().getDate()
+      );
+let oneyear = new Date(
+     new Date().getFullYear(),
+     new Date().getMonth() + 12, 
+     new Date().getDate()
+   );     
+let formatedCurrentDate = formatDate(d);
+let formatedThreeMonthsAgo = formatDate(minusThreeMonths);
+let formatedOneYear = formatDate(oneyear);
+
 
 // ===================== Buttons ============================
 const $searchBtn = $("#submit");
@@ -79,7 +94,7 @@ $cancelRegistrationBtn.click(function(){
      window.location.reload()
      });
 
-     //
+
 $updateInfoBtn.click(function(){
      $login.remove();
      $welcomeMessageContainer.remove();
@@ -192,7 +207,7 @@ $searchBtn.click(function(){
      $deleteAccountFormContainer.hide();
      $updateAccountFormContainer.hide()
 
-  $.get(`https://api.rawg.io/api/games?search=${$game}&search_precise=true&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
+  $.get(`https://api.rawg.io/api/games?page_size=10&search=${$game}&search_precise=true&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
       $(".game-card").remove();
       $login.remove();
       $welcomeMessageContainer.remove();
@@ -208,7 +223,7 @@ $searchBtn.click(function(){
 
 //====================  SHOW UPCOMING RELEASES  ====================
 $upcomingReleasesBtn.click(function(){
-     $.get(`https://api.rawg.io/api/games?dates=2022-06-01,2023-06-01&ordering=-added&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
+     $.get(`https://api.rawg.io/api/games?dates=${formatedCurrentDate},${formatedOneYear}&ordering=-added&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
           $(".game-card").remove();
           $login.remove();
           $welcomeMessageContainer.remove();
@@ -227,7 +242,7 @@ $upcomingReleasesBtn.click(function(){
 
 //====================  SHOW LATEST RELEASES  ==================
 $latestReleasesBtn.click(function(){
-     $.get(`https://api.rawg.io/api/games?dates=2022-02-01,2022-06-01&platforms=18,1,7&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
+     $.get(`https://api.rawg.io/api/games?dates=${formatedThreeMonthsAgo},${formatedCurrentDate}&platforms=18,1,7&key=8470d1cdee404549ac2275b1a249b140`, function(data) {
           $(".game-card").remove();
           $login.remove();
           $welcomeMessageContainer.remove();
@@ -296,6 +311,7 @@ function listPlat(elem){
      return platArr;
 }
 
+//creates a list of platforms for wishlist items
 function listPlatWL(elem){
      var platArr = [];
      for(let i = 0; i < JSON.stringify(elem.platforms.length); i++){
@@ -371,6 +387,7 @@ function createResultCard(elem){
      })
 }
 
+//creates result cards for wishlist items
 function createWishlistResultCard(elem) {
      let $container = $('<div></div>')
      $container.attr("class","game-card")
@@ -431,8 +448,18 @@ function createWishlistResultCard(elem) {
 
 }
 
+//sets interval for page reload
 function done() {
      setInterval(function(){
      window.location.reload();
      },3000);
+   }
+
+
+
+//formats current date for url
+function formatDate(date){
+     var dateStr = JSON.stringify(date) 
+     var returnDate = dateStr.slice(1,11)
+     return returnDate;
    }

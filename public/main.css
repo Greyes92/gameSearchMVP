@@ -52,6 +52,7 @@ form {
      border-radius: 20px;
      padding: 10px;
      margin: 10px;
+     box-shadow: 15px 15px 15px black;
 }
 
 label {

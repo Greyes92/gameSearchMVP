@@ -38,7 +38,7 @@ The "Latest Releases" Button will show games that have released within the last 
 - Proper User authentication
 - Filter/sort results
 - Pages to display more results
-- Links that users can follow to wanted games' store
+- Links that users can follow to the desired games' store
 - Game Trailers and screenshots
 - Possibly a comments section
 
